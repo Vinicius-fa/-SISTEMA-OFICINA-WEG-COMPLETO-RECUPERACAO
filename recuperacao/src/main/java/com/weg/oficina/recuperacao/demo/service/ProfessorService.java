@@ -26,14 +26,14 @@ public class ProfessorService {
         return professorRepository.save(professor);
     }
 
-    public Professor atualizarProfessor(Long id, Professor professor) {
-        professor.setId(id);
+    public Professor atualizarProfessor( Professor professor) {
         return professorRepository.save(professor);
     }
 
-    public void deletarProfessor(Long id) {
+    public boolean deletarProfessor(Long id) {
         professorRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Professor com o ID " + id + " não encontrado"));
         professorRepository.deleteById(id);
+        return false;
     }
 }

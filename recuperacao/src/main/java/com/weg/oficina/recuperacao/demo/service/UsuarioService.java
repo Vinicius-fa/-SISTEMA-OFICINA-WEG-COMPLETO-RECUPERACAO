@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -26,7 +25,8 @@ public class UsuarioService {
         return usuarioRepository.findById(id).orElse(null);
     }
 
-    public void deletarUsuario(Long id) {
+    public boolean deletarUsuario(Long id) {
         usuarioRepository.deleteById(id);
+        return false;
     }
 }

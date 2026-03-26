@@ -1,10 +1,6 @@
 package com.weg.oficina.recuperacao.demo.service;
 
-import com.weg.oficina.recuperacao.demo.enums.StatusOs;
-import com.weg.oficina.recuperacao.demo.model.Aluno;
 import com.weg.oficina.recuperacao.demo.model.OrdemServico;
-import com.weg.oficina.recuperacao.demo.model.Professor;
-import com.weg.oficina.recuperacao.demo.repository.AlunoRepository;
 import com.weg.oficina.recuperacao.demo.repository.OrdemServicoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +35,10 @@ public class OrdemServicoService {
         return ordemServicoRepository.save(ordemServico);
     }
 
-    public void deletarOrdemServico(Long id) {
+    public boolean deletarOrdemServico(Long id) {
         ordemServicoRepository.findById(id)
                         .orElseThrow(() -> new IllegalArgumentException("Ordem Servico com o ID " + id + " não encontrado"));
         ordemServicoRepository.deleteById(id);
+        return false;
     }
 }

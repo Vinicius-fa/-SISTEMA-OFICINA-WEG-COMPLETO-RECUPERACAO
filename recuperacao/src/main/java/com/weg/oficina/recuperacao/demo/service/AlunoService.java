@@ -33,9 +33,10 @@ public class AlunoService {
         return alunoRepository.save(aluno);
     }
 
-    public void deletarAluno(Long id) {
+    public boolean deletarAluno(Long id) {
         Aluno aluno = alunoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Aluno com o ID " + id + " não encontrado"));
         alunoRepository.delete(aluno);
+        return false;
     }
 }
