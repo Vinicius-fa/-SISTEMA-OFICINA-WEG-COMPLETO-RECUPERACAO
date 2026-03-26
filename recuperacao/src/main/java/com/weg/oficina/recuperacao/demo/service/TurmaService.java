@@ -7,6 +7,7 @@ import com.weg.oficina.recuperacao.demo.repository.AlunoRepository;
 import com.weg.oficina.recuperacao.demo.repository.ProfessorRepository;
 import com.weg.oficina.recuperacao.demo.repository.TurmaRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +16,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TurmaService {
 
-    private final ProfessorRepository professorRepository;
-    private final AlunoRepository alunoRepository;
-    private final TurmaRepository turmaRepository;
+    @Autowired
+    private ProfessorRepository professorRepository;
+
+    @Autowired
+    private AlunoRepository alunoRepository;
+
+    @Autowired
+    private TurmaRepository turmaRepository;
 
     public void inicializarSistema() {
         Professor p1 = professorRepository.save(new Professor("Mestre Ricardo (WEG)"));
