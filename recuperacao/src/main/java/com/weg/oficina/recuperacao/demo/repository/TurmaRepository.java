@@ -1,9 +1,9 @@
 package com.weg.oficina.recuperacao.demo.repository;
 
-import com.weg.oficina.recuperacao.demo.model.OrdemServico;
+import com.weg.oficina.recuperacao.demo.model.Turma;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrdemServicoRepository extends JpaRepository<OrdemServico, Long> {
+public interface TurmaRepository extends JpaRepository<Turma, Long> {
 }
